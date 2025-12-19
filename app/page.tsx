@@ -1,63 +1,64 @@
-import Image from "next/image";
+import { ModeToggle } from '@/components/theme/theme-toggle';
+import { Button } from '@/components/ui/button';
+import { Card } from '@/components/ui/card';
+import { Input } from '@/components/ui/input';
+import { PlaneTakeoff, Sparkles } from 'lucide-react';
 
-export default function Home() {
+export default function TravelHero() {
   return (
-    <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
-        </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
+    <div className="min-h-screen  dark:bg-background">
+      {/* Header */}
+
+      {/* Hero */}
+      <main className="flex flex-col items-center justify-center px-4 pt-24">
+        <h1 className="text-4xl md:text-5xl font-bold text-center">
+          Plan your perfect trip with AI.
+        </h1>
+
+        <p className="mt-4 max-w-xl text-center  text-muted-foreground">
+          Tell us where you are and where you want to go. We'll handle the rest.
+        </p>
+
+        {/* Card */}
+        <Card className="mt-12 w-full max-w-xl rounded-2xl dark:!bg-background  dashadow-lg p-6">
+          {/* Origin */}
+          <div className="space-y-2">
+            <label className="flex items-center gap-2 text-sm  dark:text-white font-medium text-gray-700">
+              <PlaneTakeoff className="h-4 w-4 text-blue-600" />
+              ORIGIN
+            </label>
+            <Input
+              placeholder="e.g., New York, JFK"
+              className="h-12 text-base"
             />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+          </div>
+
+          {/* Destination */}
+          <div className="space-y-2">
+            <label className="flex items-center gap-2 text-sm font-medium text-gray-700">
+              <PlaneTakeoff className="h-4 w-4 text-blue-600 dark:text-white rotate-90" />
+              DESTINATION
+            </label>
+
+            <div className="relative">
+              <Input
+                placeholder="e.g., Tokyo, Japan"
+                className="h-12 text-base pr-10"
+              />
+              <Sparkles className="absolute right-3 top-1/2 h-5 w-5 -translate-y-1/2 text-blue-600" />
+            </div>
+          </div>
+
+          {/* CTA */}
+          <Button className="mt-8 h-12 w-full text-base dark:text-white font-semibold bg-blue-600 hover:bg-blue-700">
+            Start Planning →
+          </Button>
+        </Card>
+
+        {/* Footer links */}
+        <div className="mt-10 flex gap-6 text-sm text-gray-600">
+          <button className="hover:text-gray-900">How it works</button>
+          <button className="hover:text-gray-900">Popular Destinations</button>
         </div>
       </main>
     </div>
